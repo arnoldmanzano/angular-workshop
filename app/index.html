@@ -9,10 +9,18 @@
   </head>
   <body>
     <main>
-      <section ng-controller="countersCtrl as counters">
-        <button ng-click="counters.increment()">+</button>
-        {{ counters.count }}
-        <button ng-click="counters.decrement()">-</button>
+      <section ng-controller="countersNumber as numbers">
+        <input ng-model="numbers.number">
+        <span> Number of counters: {{numbers.number}}</span>
+        <ul>
+          <li ng-repeat="i in numbers.getArray() track by $index">
+            <section ng-controller="countersCtrl as counters">
+              <button ng-click="counters.increment()">+</button>
+              {{ counters.count }}
+              <button ng-click="counters.decrement()">-</button>
+            </section>
+          </li>
+        </ul>
       </section>
     </main>
   </body>
