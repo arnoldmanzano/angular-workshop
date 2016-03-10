@@ -9,8 +9,14 @@
   </head>
   <body>
     <main>
-      <section>
-        Count: <span id="count">0</span>
+      <section ng-controller="repeatController as repeat">
+        <input id="repeatnum" ng-model="repeat.number">
+        <span> Number of counters: {{repeat.number}}</span>
+        <section ng-controller="counterController as counter" ng-repeat="i in repeat.getArray()">
+          Count: <span id="count{{$index+1}}">{{counter.count}}</span>
+          <button id="increment{{$index+1}}" ng-click="counter.increment()">+</button>
+          <button id="decrement{{$index+1}}" ng-click="counter.decrement()">-</button>
+        </section>
       </section>
     </main>
   </body>
