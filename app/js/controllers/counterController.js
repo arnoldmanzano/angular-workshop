@@ -1,7 +1,7 @@
 counterApp.factory('ExampleFactory', function(){
   var UserFactory = function() {
     this.currentTime = Date();
-  }
+  };
 
   UserFactory.prototype.storeTime = function() {
     this.currentTime = Date();
@@ -22,7 +22,7 @@ counterApp.controller('ExampleCtrl', function(ExampleFactory, ExampleService){
 
   var self = this;
 
-  self.exampleFactory = new ExampleFactory;
+  self.exampleFactory = new ExampleFactory();
   self.exampleService = ExampleService;
 });
 
